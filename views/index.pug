@@ -1,0 +1,28 @@
+<!-- Liste all the posts -->
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Document
+  link(rel='stylesheet' href='/css/style.css')
+center Notre Blog
+br
+center.home
+  a(href="/posts") Home
+  a(href="/posts/edit" style="margin-left:20px;text-decoration:none") add post
+  a(href="/logout" style="margin-left:20px;background-color:red") Logout
+.container
+each i in posts
+  .myPost
+    h1 #{i.titre}
+    p #{i.auteur}
+    p date de creation : #{i.createdAt}
+    p date de Modification : #{i.updatedAt}
+    h4 #{i.resume}
+    div.text__content
+      p(class='learn') #{i.content} 
+      a(href=`/posts/post/${i._id}`) read more
+    .btn__container
+      a.remove.btn(href=`/posts/delete/${i._id}`) remove
+      a.modify.btn(href=`/posts/edit/${i._id}`) modify

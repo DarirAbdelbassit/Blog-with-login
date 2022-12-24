@@ -1,0 +1,25 @@
+<!-- Detail d'un post -->
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Document
+  link(rel='stylesheet' href='/css/style.css')
+center Notre Blog
+br
+center.home
+  a(href="/posts/") Home
+  a(href="/posts/add" style="margin-left:20px") add post
+.container
+  .myPost
+    h1 #{postsdetail.titre}
+    p #{postsdetail.auteur}
+    p date de creation : #{postsdetail.createdAt}
+    p date de Modification : #{postsdetail.updatedAt}
+    h4 #{postsdetail.resume}
+    div.text__content
+      p #{postsdetail.content} 
+    .btn__container
+      a.remove.btn(href=`/posts/delete/${postsdetail._id}`) remove
+      a.modify.btn(href=`/posts/edit/${postsdetail._id}`) modify

@@ -1,0 +1,26 @@
+<!-- Form to Create a Post -->
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Document
+  link(rel='stylesheet' href='/css/style.css')
+center Notre Blog
+br
+center.home
+  a(href="/posts") Home
+  a(href="/posts/edit" style="margin-left:20px;text-decoration:none") Add post
+center
+  h3 #{(post.titre)?'Edit post':'Add post'}
+.formcontainer
+    form(action=(post.titre)?'/posts/update/'+post.id : '/posts/store' method="post")
+        label titre
+        input(type='text' name='titre' value=(post.titre)?post.titre:'')
+        label auteur
+        input(type='text' name='auteur' value=(post.auteur && post.auteur != 'unkown')?post.auteur:'')
+        label Resume: 
+        textarea( type="text" name='resume')  #{(post.resume)?post.resume:''}
+        label Content:
+        textarea(type="text"  name='content') #{(post.content)?post.content:''}
+        input(type='submit' value=(post.titre)?'Enregistrer':'Submit')
